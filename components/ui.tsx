@@ -1,0 +1,5 @@
+import Image from 'next/image';
+export function Eyebrow({children}: {children: React.ReactNode}) { return <p className="vh-eyebrow"><span/>{children}</p>; }
+export function ActionLink({children, href='#vh-enquire', light=false}: {children: React.ReactNode; href?:string; light?:boolean}) { return <a className={'vh-button'+(light?' vh-button-light':'')} href={href}>{children}<span aria-hidden="true">↗</span></a>; }
+export function Photo({src,alt,className='',priority=false,sizes='(max-width: 760px) 100vw, 50vw'}: {src:string;alt:string;className?:string;priority?:boolean;sizes?:string}) { return <div className={'vh-photo '+className}><Image src={'/images/'+src} alt={alt} fill priority={priority} sizes={sizes}/></div>; }
+export function HeroMedia() { const video=process.env.VISTA_HERO_VIDEO_URL; return video ? <video className="vh-hero-video" autoPlay loop muted playsInline preload="metadata" poster="/images/facade-vista.webp" aria-label="Vista Hub architectural film"><source src={video} type="video/mp4"/></video> : <Photo src="facade-vista.webp" alt="Vista Hub building façade" priority sizes="100vw"/>; }
