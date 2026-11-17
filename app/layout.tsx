@@ -5,6 +5,8 @@ import './hero-stats.css';
 import './strategic-address.css';
 import './connectivity.css';
 import './commercial-standard.css';
+import './office-gallery.css';
+import './hero-update.css';
 import './section-typography.css';
 import './amenities.css';
 import './collection.css';

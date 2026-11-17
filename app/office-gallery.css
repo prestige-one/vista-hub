@@ -1,0 +1,19 @@
+.vh-office-gallery{background:#f4f0e8;padding:68px 0 58px}
+.vh-office-gallery-heading{text-align:center;margin-bottom:32px}
+.vh-office-gallery-heading .vh-eyebrow{justify-content:center;font-size:10px;margin-bottom:16px}
+.vh-office-gallery-heading h2 span{color:#926e37}
+.vh-gallery-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;border-radius:10px}
+.vh-gallery-track::-webkit-scrollbar{display:none}
+.vh-office-gallery-room{flex:0 0 calc((100% - 22px)/2);min-width:0;scroll-snap-align:start}
+.vh-office-gallery-room .vh-photo{aspect-ratio:1.25;border-radius:10px}
+.vh-office-gallery-room img{object-position:center}
+.vh-office-gallery-room figcaption{font-size:10px;letter-spacing:1.5px;line-height:1.7;text-transform:uppercase;padding:13px 0 0;color:var(--vh-muted)}
+.vh-office-gallery-room figcaption strong{font-weight:500;color:var(--vh-ink)}
+.vh-gallery-slider{position:relative}
+.vh-gallery-arrows{position:absolute;top:0;left:11px;width:calc(100% - 22px);aspect-ratio:2.5;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+.vh-gallery-arrows button{pointer-events:auto;display:grid;place-items:center;width:48px;height:48px;padding:0;border:1px solid #ffffffb3;border-radius:8px;background:#fffffff0;color:var(--vh-ink);box-shadow:0 4px 18px #02102b20;transition:background .2s,opacity .2s}
+.vh-gallery-arrows button:first-child{transform:translateX(calc(-50% - 11px))}
+.vh-gallery-arrows button:last-child{transform:translateX(calc(50% + 11px))}
+.vh-gallery-arrows svg{display:block;width:24px;height:24px}
+.vh-gallery-arrows button:hover:enabled{background:#d4b17a}
+@media(max-width:760px){.vh-office-gallery{padding:50px 0 42px}.vh-office-gallery-heading{margin-bottom:25px}.vh-gallery-track{gap:16px}.vh-office-gallery-room{flex-basis:100%}.vh-office-gallery-room .vh-photo{aspect-ratio:1.15}.vh-office-gallery-room figcaption{font-size:9px;letter-spacing:1px}.vh-gallery-arrows{left:0;width:100%;aspect-ratio:1.15;padding-inline:0}.vh-gallery-arrows button{width:40px;height:40px}.vh-gallery-arrows button:first-child{transform:translateX(-50%)}.vh-gallery-arrows button:last-child{transform:translateX(50%)}}

@@ -1,0 +1,11 @@
+/* Preserve the existing hero palette and compact type scale with the new copy. */
+.vh-hero .vh-hero-content{padding-top:clamp(145px,23vh,260px)}
+.vh-hero .vh-hero-content>p:not(.vh-eyebrow){max-width:560px;font-size:14px;line-height:1.85}
+.vh-hero .vh-hero-actions{gap:16px;flex-wrap:wrap;margin-top:28px}
+.vh-hero .vh-hero-actions .vh-button{font-size:14px;gap:24px}
+.vh-hero .vh-hero-actions .vh-button:last-child{background:transparent;border-color:#f4f3eea6;color:var(--vh-pale)}
+.vh-hero .vh-hero-actions .vh-button:last-child:hover{background:#f4f3ee16}
+.vh-header .vh-header-cta{background:#fff;color:#000;border:1px solid #fff;text-transform:uppercase;font-weight:500;font-size:15px;justify-content:center;white-space:nowrap;gap:0}
+.vh-header .vh-header-cta:hover{border-color:var(--vh-pale);background:#d4b17a}
+@media(max-width:760px){.vh-hero .vh-hero-content{padding-top:145px}.vh-hero .vh-hero-content>p:not(.vh-eyebrow){max-width:430px;font-size:13px;line-height:1.8}.vh-hero .vh-hero-actions{gap:12px;margin-top:22px}.vh-hero .vh-hero-actions .vh-button{font-size:12px;gap:16px;padding:9px 16px;min-height:46px}.vh-header .vh-header-cta{font-size:11px;padding:10px 12px;margin-right:15px}.vh-header .vh-header-cta span{font-size:18px}}
+@media(max-width:390px){.vh-header .vh-wordmark{font-size:17px;letter-spacing:3px}.vh-header .vh-header-cta{font-size:10px;padding:10px;margin-right:12px}.vh-hero .vh-hero-actions .vh-button{font-size:11px;gap:10px;padding:9px 12px}}

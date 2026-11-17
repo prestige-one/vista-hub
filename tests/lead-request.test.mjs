@@ -21,3 +21,13 @@ test('additional notes preserve the selected request and space metadata',()=>{
  assert.match(draft.body,/Please include available layouts/);
  assert.match(getLeadCopy({intent:'brochure'}).title,/Vista Hub/);
 });
+
+
+test('early access prepares a distinct registration request',()=>{
+ const copy=getLeadCopy({intent:'early-access'});
+ const draft=buildLeadEmail({intent:'early-access'},fields);
+ assert.match(copy.title,/early access/i);
+ assert.match(draft.subject,/Early access request/);
+ assert.match(draft.body,/register my interest for early access/);
+ assert.notEqual(draft.subject,buildLeadEmail({intent:'enquiry'},fields).subject);
+});

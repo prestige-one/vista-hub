@@ -15,7 +15,7 @@ export function LeadPopup(){
  useEffect(()=>{
   const handler=(event:Event)=>{
    const detail=(event as CustomEvent<LeadRequest>).detail;
-   if(!detail||!['enquiry','floor-plans','brochure'].includes(detail.intent))return;
+   if(!detail||!['enquiry','floor-plans','brochure','early-access'].includes(detail.intent))return;
    automatic.current=false;setRequest({intent:detail.intent,unit:detail.unit});setPreview(null);setOpen(true);
   };
   window.addEventListener(LEAD_REQUEST_EVENT,handler);

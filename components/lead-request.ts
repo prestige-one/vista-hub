@@ -1,4 +1,4 @@
-export type LeadIntent='enquiry'|'floor-plans'|'brochure';
+export type LeadIntent='enquiry'|'floor-plans'|'brochure'|'early-access';
 export type LeadRequest={intent:LeadIntent;unit?:string};
 export const LEAD_REQUEST_EVENT='vh:open-lead-popup';
 
@@ -8,6 +8,13 @@ export function openLeadPopup(request:LeadRequest){
 
 export function getLeadCopy(request:LeadRequest){
  const unit=request.unit?.trim();
+ if(request.intent==='early-access')return {
+  title:'Secure your early access.',
+  subtitle:'Be among the first to discover Vista Hub.',
+  subject:'Vista Hub — Early access request',
+  message:'I would like to register my interest for early access to Vista Hub. Please share availability and further details.',
+  button:'Secure Early Access',kind:'Early access request'
+ }; 
  if(request.intent==='floor-plans')return {
   title:'Request Vista Hub floor plans.',
   subtitle:unit?'Floor plans for '+unit.toLowerCase()+'.':'Explore the available office and retail configurations.',
