@@ -1,6 +1,6 @@
 # Vista Hub
 
-Next.js App Router landing page, TypeScript and plain CSS. All authored classes and IDs use `vh-`. Shared elements live in `components/ui.tsx`; interactive navigation, amenities, collection and preview form live in `components/interactive.tsx`.
+Next.js App Router landing page, TypeScript and plain CSS. Authored classes and internal form/accessibility IDs use `vh-`; public section anchors use short names such as #amenities, #space-reveal and #enquire. Shared elements live in `components/ui.tsx`; interactive navigation lives in `components/interactive.tsx`; collection and enquiry have their own reusable modules.
 
 ## Run
 
@@ -19,9 +19,36 @@ Production: `npm run build`, then `npm start`. Type check: `npm run typecheck`.
 - The hero uses `public/images/facade-vista.webp`. Set `VISTA_HERO_VIDEO_URL=/videos/vista-hub.mp4` in `.env.local` and put the MP4 in `public/videos` to switch to video. Rebuild for production after changing it. The facade image remains the video poster.
 - The enquiry form validates locally and displays a preview message. It does not send, store or log contact details. Connect a submission endpoint when approved.
 - Floor-plan requests lead to the enquiry form. No brochure or floor-plan files were supplied.
-- The third section uses the original site's Dubai location map. The later travel-time section includes an illustrative diagram. Both link to Google Maps. Travel times come from the supplied content and are marked indicative. Completion dates are omitted.
+- The location section uses `public/images/vista-hub-map.webp`. Connectivity uses `Dubai-Skyline-full.webp` and the supplied indicative drive times. Completion dates are omitted.
 - The statistics count up once when entering view. `components/text-char-slide.tsx` provides the reusable title entrance; the introduction also includes a gold shimmer. Animations respect reduced-motion preferences.
 
 ## Verified
 
 Production build and TypeScript pass. Browser checks cover desktop and mobile layouts, navigation, amenity selection, unit selection, preview form validation, image loading, Google Sans and horizontal overflow.
+
+## Amenities
+
+The motion-blur amenities slider uses the shared max-width section container. `components/amenities.tsx` supplies the original spaces to reusable `components/motion-showcase.tsx`; styles live in `app/amenities.css`. The slider shows the Vista Hub wordmark, category/title and previous/next controls. Keyboard arrows and mobile swipes navigate all 16 spaces. Image elements retain stable keys between current and outgoing states to prevent flashes. Only the current and incoming images mount during a transition; the old image is removed after animation-end. Incoming images decode before transitions begin. Autoplay advances every 4 seconds while the section is visible and the tab is active. Reduced-motion preferences disable sliding and blur. There are no slider, animation or 3D dependencies.
+
+
+
+## Phone input
+
+The reusable `components/phone-input.tsx` defaults to UAE (+971), with searchable country calling codes and local SVG flags. Data is in `components/phone-countries.ts`; asset licenses are in `licenses/phone-assets.txt`. The chosen country and calling code are separate hidden form fields; the local preview does not submit or store them. No phone-input library is shipped. Shared 10px panel corners live in `app/panels.css`.
+
+## Footer, timed popup and scroll reveal
+
+The dark footer is in components/footer.tsx with app/footer.css; it contains project links and contact details without a subscription form. The lead dialog is in components/lead-popup.tsx with app/lead-popup.css. It opens after 3 seconds for a first visit or expired cookie. The host-scoped vh_lead_popup_seen cookie stores only a 24-hour expiry timestamp, with Max-Age=86400, Expires, Path=/ and SameSite=Lax (Secure on HTTPS). It is set only when the popup opens and is not renewed on repeat visits. Forms remain local previews.
+
+The original collection is retained in components/legacy-collection.tsx but temporarily omitted from the home page. To restore it, import and render LegacyCollection before SpaceReveal. A separate components/space-reveal.tsx immediately after it keeps its title and description visible from the compact state, expands the navy panel on scroll, and progressively reveals a second interactive collection below. The two collection instances have independent state and unique control IDs. The backdrop is a newly generated business-plaza image in public/images/space-purpose-plaza.webp; its original and exact generation prompt are retained in images/space-purpose-plaza.png and images/space-purpose-plaza.prompt.txt. It uses passive scroll events and one requestAnimationFrame update while visible, with no animation library. Reduced motion and short viewports use a static panel. Shared collection content is in components/collection-data.ts.
+
+Regression checks: node --experimental-strip-types --test tests/lead-popup-cookie.test.mjs tests/space-reveal-progress.test.mjs
+
+
+
+## Context-aware enquiry actions
+
+Header Enquire, Download Brochure and Request floor plans use the shared LeadPopupTrigger. Explicit clicks open the popup even when the daily automatic-popup cookie is present. components/lead-request.ts defines intent-specific headings, default messages and email subjects/bodies; floor-plan requests include the selected unit type. The preview prepares email_subject and email_body form fields, but no email is sent or persisted. Connect the exported builder to the eventual approved submission endpoint. The on-page contact action is centered at a 190px minimum width and 44px height.
+
+Legal URLs are centralized in components/site-links.ts. The footer opens the supplied Prestige One policies in a new tab. The original collection is retained but not rendered; its footer link targets the new expanding section.
+

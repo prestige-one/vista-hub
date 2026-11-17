@@ -1,0 +1,8 @@
+/* One heading scale for the landing page's content sections. */
+:root{--vh-section-title-size:clamp(30px,2.8vw,40px)}
+.vh-section h2,.vh-connectivity-heading h2{font-size:var(--vh-section-title-size);letter-spacing:-1px;line-height:1.2}
+.vh-intro h2{line-height:1.4}
+@media(max-width:760px){:root{--vh-section-title-size:30px}.vh-section h2{letter-spacing:-.7px}}
+/* Keep the previously requested connectivity title on one line on phones. */
+@media(max-width:600px){.vh-connectivity-heading h2{font-size:clamp(18px,4.4vw,24px);letter-spacing:-.5px;line-height:1.3}}
+@media(max-width:360px){.vh-connectivity-heading h2{font-size:16px}}

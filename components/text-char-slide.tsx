@@ -34,3 +34,4 @@ export function TextCharSlide({segments}: {segments: readonly TextSegment[]}) {
   return <span key={index} className={[segment.accent ? 'vh-title-accent' : '',segment.shimmer ? 'vh-text-shimmer' : ''].filter(Boolean).join(' ')}>{content}</span>;
  })}</span></h2>;
 }
+

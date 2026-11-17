@@ -1,0 +1,5 @@
+/* Shared panel corners across the landing page. */
+.vh-standard-panel,.vh-motion,.vh-destination-panel,.vh-collection-feature,.vh-enquiry-panel{border-radius:10px}
+.vh-enquiry-visual{border-radius:9px 0 0 9px}
+.vh-enquiry-form{border-radius:0 9px 9px 0}
+@media(max-width:760px){.vh-enquiry-visual{border-radius:9px 9px 0 0}.vh-enquiry-form{border-radius:0 0 9px 9px}}

@@ -1,0 +1,21 @@
+.vh-commercial-standard{background:#fff;padding:72px 0 80px}
+.vh-standard-heading{text-align:center;max-width:730px;margin:0 auto 34px}
+.vh-standard-heading .vh-eyebrow{justify-content:center;margin-bottom:18px;font-size:10px;letter-spacing:2px}
+.vh-standard-heading h2>span{color:#926e37}
+.vh-standard-heading>p{font-size:14px;line-height:1.85;color:#65737a;max-width:660px;margin:20px auto 0}
+.vh-standard-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.vh-standard-panel{position:relative;isolation:isolate;overflow:hidden;min-height:400px;background:#02102b;border-radius:5px;color:#fff;display:flex;align-items:flex-end}
+.vh-standard-panel>.vh-photo{position:absolute;inset:0;z-index:-2}
+.vh-standard-panel img{transition:transform .5s ease;object-position:center}
+.vh-standard-panel:first-child img{object-position:60% center}
+.vh-standard-panel:nth-child(2) img{object-position:50% center}
+.vh-standard-panel:nth-child(3) img{object-position:53% center}
+.vh-standard-panel:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 35%,#02102b18 50%,#02102bd9 78%,#02102bf5 100%);pointer-events:none}
+.vh-standard-panel:hover img{transform:scale(1.035)}
+.vh-standard-panel-number{position:absolute;top:20px;left:22px;font-size:10px;font-weight:500;letter-spacing:1px;border:1px solid #ffffff70;border-radius:50%;width:33px;height:33px;display:grid;place-items:center;background:#02102b30}
+.vh-standard-panel-copy{padding:28px 26px;width:100%;text-align:center}
+.vh-standard-panel-copy h3{font-size:20px;font-weight:500;letter-spacing:-.3px;line-height:1.3;margin-bottom:12px}
+.vh-standard-panel-copy p{font-size:13px;line-height:1.8;color:#d9e0e7;max-width:310px;margin-inline:auto}
+@media(max-width:1100px){.vh-standard-panels{gap:16px}.vh-standard-panel{min-height:360px}.vh-standard-panel-copy{padding:24px 20px}.vh-standard-panel-copy h3{font-size:18px}.vh-standard-panel-copy p{font-size:12px}.vh-standard-panel-number{left:20px}}
+@media(max-width:760px){.vh-commercial-standard{padding:56px 0}.vh-standard-heading{margin-bottom:28px}.vh-standard-heading .vh-eyebrow{font-size:9px;margin-bottom:16px}.vh-standard-heading>p{font-size:13px;margin-top:18px}.vh-standard-panels{grid-template-columns:1fr;gap:18px}.vh-standard-panel{min-height:340px}.vh-standard-panel-copy{padding:25px}.vh-standard-panel-copy h3{font-size:20px}.vh-standard-panel-copy p{font-size:13px;max-width:none}}
+@media(prefers-reduced-motion:reduce){.vh-standard-panel img{transition:none}.vh-standard-panel:hover img{transform:none}}
