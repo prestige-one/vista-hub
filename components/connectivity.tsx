@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useRef, useState} from 'react';
-import Image from 'next/image';
+
 
 const VH_CONNECTIVITY_AUTOPLAY_MS=4000;
 
@@ -50,8 +50,7 @@ export function Connectivity() {
  }, []);
  return <section ref={section} className="vh-connectivity" id="connectivity" aria-labelledby="vh-connectivity-title">
   <div className="vh-connectivity-stage">
-   <Image className="vh-connectivity-background" src="/images/v2/majan-calm-connectivity.webp" alt="" fill sizes="100vw" unoptimized/>
-   <div className="vh-container vh-connectivity-stage-content"><div className="vh-connectivity-heading"><p>VISTA HUB / CONNECTIVITY</p><h2 id="vh-connectivity-title">Well connected. In every direction.</h2><span>Explore Dubai from Majan.</span></div></div>
+   <div className="vh-container vh-connectivity-stage-content"><div className="vh-connectivity-heading"><p>VISTA HUB / CONNECTIVITY</p><h2 id="vh-connectivity-title">Well connected. <span>In every direction.</span></h2><span>Explore Dubai from Majan.</span></div></div>
   </div>
   <div className="vh-container vh-connectivity-bottom"><div className="vh-destination-panel"><div className="vh-destination-panel-heading"><h3>Destinations &amp; drive times</h3><span>FROM VISTA HUB</span></div><div className="vh-destination-grid" role="group" aria-label="Select a destination to preview">{destinations.map((item,index)=><button id={'vh-destination-'+index} key={item.name} type="button" className={'vh-destination'+(active===index?' vh-destination-active':'')} aria-pressed={active===index} onClick={()=>setActive(index)} onKeyDown={event=>{let next=index;if(event.key==='ArrowRight')next=(index+1)%destinations.length;else if(event.key==='ArrowLeft')next=(index-1+destinations.length)%destinations.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=destinations.length-1;else return;event.preventDefault();setActive(next);document.getElementById('vh-destination-'+next)?.focus();}}><span className="vh-destination-time"><DestinationSymbol icon={item.icon}/><strong>{item.minutes}</strong><span>MIN</span></span><span className="vh-destination-name">{item.name}</span></button>)}</div></div><div className="vh-connectivity-note"><p>Select a destination to preview.</p><p>Approximate drive times. Subject to traffic.</p></div></div>
  </section>;

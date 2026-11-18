@@ -41,7 +41,7 @@ export function SpaceReveal(){
   <div ref={intro} className="vh-space-intro"><div className="vh-space-stage">
    <div className="vh-space-backdrop" aria-hidden="true"><Photo src="v2/vita-hub-view-outside.webp" alt="" unoptimized sizes="100vw"/></div>
    <div ref={panel} className="vh-space-panel"><header className="vh-space-content">
-    <p className="vh-eyebrow">THE PRESTIGE COLLECTION</p><h2 id="vh-space-reveal-title">Space with <span>purpose.</span></h2><span className="vh-space-divider" aria-hidden="true"/><p className="vh-space-description">Corporate offices, private balconies and select retail.<br/>Find the setting for your professional ambition.</p>
+    <p className="vh-eyebrow">THE PRESTIGE COLLECTION</p><h2 id="vh-space-reveal-title">The address of <span>success</span></h2><span className="vh-space-divider" aria-hidden="true"/><p className="vh-space-description">Corporate offices, private balconies and select retail.<br/>Find the setting for your professional ambition.</p>
    </header></div>
   </div></div>
   <div className="vh-space-collection"><div ref={details} className="vh-container vh-space-collection-inner"><Collection idPrefix="vh-space-collection" label="Expanded collection unit type"/><p className="vh-collection-note">Images illustrate the Vista Hub environment. Request floor plans for individual unit layouts.</p></div></div>

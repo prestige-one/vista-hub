@@ -1,5 +1,5 @@
 /* Preserve the existing hero palette and compact type scale with the new copy. */
-.vh-hero .vh-hero-content{padding-top:clamp(145px,23vh,260px)}
+@media(min-width:1101px){.vh-hero .vh-hero-content{height:calc(100% - 129px);padding-block:80px 0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}}
 .vh-hero .vh-hero-content>p:not(.vh-eyebrow){max-width:560px;font-size:14px;line-height:var(--vh-paragraph-leading,1.85)}
 .vh-hero .vh-hero-actions{gap:16px;flex-wrap:wrap;margin-top:28px}
 .vh-hero .vh-hero-actions .vh-button{font-size:14px;gap:24px}
@@ -25,3 +25,14 @@
 .vh-decrypt-measure{visibility:hidden}
 .vh-decrypt-glyph{position:absolute;inset:0;text-align:center;white-space:pre}
 .vh-decrypt-scrambled{font-family:monospace;font-size:.6em;letter-spacing:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+/* Pale-gold sliced echo, inspired by the supplied payment-rate animation. */
+.vh-signal-text{display:inline-block;position:relative;white-space:pre;color:#d4b17a}
+.vh-signal-base{display:inline-block;animation:vh-signal-base 3s linear infinite;animation-play-state:paused}
+.vh-signal-upper,.vh-signal-lower{position:absolute;inset:0;pointer-events:none;opacity:0;animation-duration:3s;animation-timing-function:steps(1,end);animation-iteration-count:infinite;animation-play-state:paused}
+.vh-signal-upper{color:#f4f3ee;clip-path:inset(12% 0 49%);animation-name:vh-signal-upper}
+.vh-signal-lower{color:#c5ad83;clip-path:inset(58% 0 4%);animation-name:vh-signal-lower}
+.vh-signal-text[data-running=true]>.vh-signal-base,.vh-signal-text[data-running=true]>.vh-signal-upper,.vh-signal-text[data-running=true]>.vh-signal-lower{animation-play-state:running}
+@keyframes vh-signal-base{0%,61%,71%,100%{opacity:1;transform:none}62%,65%{opacity:.55;transform:translateX(-1px)}64%,68%{opacity:.85;transform:translateX(1px)}70%{opacity:1;transform:none}}
+@keyframes vh-signal-upper{0%,61%,71%,100%{opacity:0;transform:none}62%{opacity:.7;transform:translateX(7px) skewX(-10deg)}64%{opacity:.5;transform:translateX(-5px) skewX(8deg)}66%{opacity:.8;transform:translateX(4px)}69%{opacity:.4;transform:translateX(-2px)}}
+@keyframes vh-signal-lower{0%,61%,71%,100%{opacity:0;transform:none}62%{opacity:.6;transform:translateX(-8px) skewX(-12deg)}64%{opacity:.8;transform:translateX(5px) skewX(6deg)}67%{opacity:.5;transform:translateX(-4px)}69%{opacity:.35;transform:translateX(2px)}}
+@media(prefers-reduced-motion:reduce){.vh-signal-base{animation:none}.vh-signal-upper,.vh-signal-lower{display:none}}

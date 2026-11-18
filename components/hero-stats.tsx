@@ -30,10 +30,10 @@ export function HeroStats() {
   return () => { observer.disconnect(); cancelAnimationFrame(frame); };
  }, []);
  return <div className="vh-stat-strip" ref={strip} aria-label="Vista Hub at a glance"><div className="vh-stat-strip-inner">
-  <div className="vh-stat"><strong aria-label="41 commercial units"><span data-vh-count="41" aria-hidden="true">41</span></strong><span>Commercial units</span></div>
+  <div className="vh-stat"><strong aria-label="42 commercial units"><span data-vh-count="42" aria-hidden="true">42</span></strong><span>Commercial units</span></div>
   <div className="vh-stat"><strong>4–5 m</strong><span>Ceiling heights</span></div>
-  <div className="vh-stat"><strong aria-label="25 plus amenities"><span data-vh-count="25" aria-hidden="true">25</span><span aria-hidden="true">+</span></strong><span>Amenities</span></div>
-  <div className="vh-stat"><strong>Freehold</strong><span>Ownership</span></div>
+  <div className="vh-stat"><strong aria-label="20 plus exclusive amenities"><span data-vh-count="20" aria-hidden="true">20</span><span aria-hidden="true">+</span></strong><span>Exclusive Amenities</span></div>
+  <div className="vh-stat"><strong aria-label="9 boutique retail spaces"><span data-vh-count="9" aria-hidden="true">9</span></strong><span>Boutique Retail Spaces</span></div>
  </div></div>;
 }
 

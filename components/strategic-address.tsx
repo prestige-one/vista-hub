@@ -13,7 +13,7 @@ const connections = [
 ];
 
 export function StrategicAddress() {
- return <section className="vh-section vh-navy vh-address" id="location" aria-labelledby="vh-address-title"><div className="vh-container vh-address-container">
+ return <section className="vh-section vh-address" id="location" aria-labelledby="vh-address-title"><div className="vh-container vh-address-container">
   <div className="vh-address-layout">
    <div className="vh-address-copy">
     <Eyebrow>LOCATION · MAJAN</Eyebrow>
