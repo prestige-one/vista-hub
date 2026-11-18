@@ -1,9 +1,9 @@
 import {Eyebrow, Photo} from './ui';
 
 const features = [
- {title:'Freehold ownership',description:'Own your address outright, an asset that grows with your enterprise.',image:'facade-vista.webp',alt:'Vista Hub commercial tower and landscaped surroundings'},
- {title:'4–5 metre ceilings',description:'Generous volumes and natural light that give every idea room to breathe.',image:'Lobby.webp',alt:'Vista Hub lobby showing the full floor-to-ceiling volume, tall wall panels and reception area'},
- {title:'Executive amenities',description:'An exclusive collection of spaces to meet, host, focus and recharge.',image:'business-lounge.webp',alt:'Vista Hub business lounge with comfortable seating and premium finishes'},
+ {title:'Freehold ownership',description:'Own your address outright, an asset that grows with your enterprise.',image:'v2/evening-view.webp',alt:'Vista Hub commercial tower illuminated at sunset'},
+ {title:'4–5 metre ceilings',description:'Generous volumes and natural light that give every idea room to breathe.',image:'v2/Business-Lounge.webp',alt:'Vista Hub lounge with tall windows, generous ceiling heights and work counters'},
+ {title:'Executive amenities',description:'An exclusive collection of spaces to meet, host, focus and recharge.',image:'v2/meeting-room.webp',alt:'Vista Hub executive boardroom with a long meeting table and premium finishes'},
 ];
 
 export function CommercialStandard() {

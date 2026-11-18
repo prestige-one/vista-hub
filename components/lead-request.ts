@@ -1,3 +1,9 @@
+export const leadMarketing={
+ title:'Make a move worthy of your ambition',
+ subtitle:"Discover Dubai's Next Commercial Landmark",
+ description:'Premium Grade A Corporate offices in Majan, Dubai.',
+ button:'Get Priority Access'
+} as const;
 export type LeadIntent='enquiry'|'floor-plans'|'brochure'|'early-access';
 export type LeadRequest={intent:LeadIntent;unit?:string};
 export const LEAD_REQUEST_EVENT='vh:open-lead-popup';
@@ -9,32 +15,28 @@ export function openLeadPopup(request:LeadRequest){
 export function getLeadCopy(request:LeadRequest){
  const unit=request.unit?.trim();
  if(request.intent==='early-access')return {
-  title:'Secure your early access.',
-  subtitle:'Be among the first to discover Vista Hub.',
+  ...leadMarketing,
   subject:'Vista Hub — Early access request',
   message:'I would like to register my interest for early access to Vista Hub. Please share availability and further details.',
-  button:'Secure Early Access',kind:'Early access request'
+  kind:'Early access request'
  }; 
  if(request.intent==='floor-plans')return {
-  title:'Request Vista Hub floor plans.',
-  subtitle:unit?'Floor plans for '+unit.toLowerCase()+'.':'Explore the available office and retail configurations.',
+  ...leadMarketing,
   subject:'Vista Hub — Floor plan request'+(unit?' — '+unit:''),
   message:'I would like to request the floor plans for '+(unit?unit.toLowerCase()+' at Vista Hub':'Vista Hub')+'.',
-  button:'Request floor plans',kind:'Floor plan request'
+  kind:'Floor plan request'
  };
  if(request.intent==='brochure')return {
-  title:'Discover Vista Hub.',
-  subtitle:'Request the Vista Hub brochure.',
+  ...leadMarketing,
   subject:'Vista Hub — Brochure request',
   message:'Please send me the Vista Hub brochure with details about the development.',
-  button:'Request brochure',kind:'Brochure request'
+  kind:'Brochure request'
  };
  return {
-  title:'Your next business address awaits.',
-  subtitle:'Vista Hub by Prestige One',
+  ...leadMarketing,
   subject:'Vista Hub — General enquiry',
   message:'I would like more information about Vista Hub.',
-  button:'Enquire now',kind:'General enquiry'
+  kind:'General enquiry'
  };
 }
 

@@ -2,9 +2,10 @@ import {Eyebrow,Photo} from './ui';
 import {GallerySlider} from './gallery-slider';
 
 const rooms=[
- {image:'meeting-room-1.webp',title:'The Boardroom',caption:'Put your next move on the table',alt:'Vista Hub boardroom with a long meeting table and upholstered executive chairs'},
- {image:'workplace.webp',title:'The Workspace',caption:'Space to focus, room to grow',alt:'Bright Vista Hub office workspace with desks and generous ceiling heights'},
- {image:'pvt-ofc.webp',title:'The Private Office',caption:'A space for your next chapter',alt:'Vista Hub private executive office overlooking landscaped green spaces'},
+ {image:'v2/workspace.webp',title:'The Workspace',caption:'Space to focus, room to grow',alt:'Bright Vista Hub workspace with desks and generous ceiling heights'},
+ {image:'v2/work-space-1.webp',title:'The Private Office',caption:'A space for your next chapter',alt:'Vista Hub executive office with full-height windows overlooking landscaped green spaces'},
+ {image:'v2/meeting-room.webp',title:'The Boardroom',caption:'Put your next move on the table',alt:'Vista Hub boardroom with a long meeting table and upholstered executive chairs'},
+ {image:'v2/work-place-night.webp',title:'The Evening Perspective',caption:'An address beyond the ordinary',alt:'Vista Hub private office at night overlooking the illuminated Dubai skyline'},
 ];
 
 export function OfficeGallery(){

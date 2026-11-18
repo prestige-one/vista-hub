@@ -13,7 +13,7 @@ const connections = [
 ];
 
 export function StrategicAddress() {
- return <section className="vh-section vh-navy vh-address" id="address" aria-labelledby="vh-address-title"><div className="vh-container vh-address-container">
+ return <section className="vh-section vh-navy vh-address" id="location" aria-labelledby="vh-address-title"><div className="vh-container vh-address-container">
   <div className="vh-address-layout">
    <div className="vh-address-copy">
     <Eyebrow>LOCATION · MAJAN</Eyebrow>
@@ -23,7 +23,7 @@ export function StrategicAddress() {
    </div>
    <figure className="vh-address-map">
     <a className="vh-address-map-link" href="https://www.google.com/maps/search/?api=1&query=Vista+Hub+Majan+Dubai" target="_blank" rel="noreferrer" aria-label="Explore Vista Hub in Majan on Google Maps">
-     <Photo src="vista-hub-map.webp" alt="Aerial location of Vista Hub in Majan, showing nearby Al Barari, Downtown Dubai, parks and IMG Worlds of Adventure" unoptimized sizes="(max-width: 760px) 100vw, (max-width: 1200px) 55vw, 620px"/>
+     <Photo src="v2/vista-hub-location.webp" alt="Aerial location of Vista Hub in Majan, showing Al Barari, Downtown Dubai, Creek Harbour and IMG Worlds of Adventure" unoptimized sizes="(max-width: 760px) 100vw, (max-width: 1200px) 55vw, 620px"/>
     </a>
    </figure>
   </div>

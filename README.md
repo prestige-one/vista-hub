@@ -1,6 +1,6 @@
 # Vista Hub
 
-Next.js App Router landing page, TypeScript and plain CSS. Authored classes and internal form/accessibility IDs use `vh-`; public section anchors use short names such as #amenities, #space-reveal and #enquire. Shared elements live in `components/ui.tsx`; interactive navigation lives in `components/interactive.tsx`; collection and enquiry have their own reusable modules.
+Next.js App Router landing page, TypeScript and plain CSS. Authored classes and internal form/accessibility IDs use `vh-`; public section anchors use short names such as #amenities, #portfolio and #enquire. Shared elements live in `components/ui.tsx`; interactive navigation lives in `components/interactive.tsx`; collection and enquiry have their own reusable modules.
 
 ## Run
 
@@ -52,3 +52,7 @@ Header Enquire, Download Brochure and Request floor plans use the shared LeadPop
 
 Legal URLs are centralized in components/site-links.ts. The footer opens the supplied Prestige One policies in a new tab. The original collection is retained but not rendered; its footer link targets the new expanding section.
 
+
+Connectivity background: public/images/v2/majan-calm-connectivity.webp is a generated Majan-inspired neighbourhood illustration, not an authenticated location photograph. Original PNG and exact generation prompt are retained in images/.
+
+Hero text effects: Grade A uses components/decrypting-text.tsx, repeating every 3 seconds while visible. Reduced-motion users see static text. The previous oval highlight remains available in components/circled-text.tsx and its CSS for later reuse.
