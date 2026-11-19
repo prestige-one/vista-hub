@@ -3,7 +3,9 @@
 .vh-coming-backdrop{inset:-40px;z-index:-3;animation:vh-coming-drift 28s ease-in-out infinite alternate;animation-play-state:paused}
 .vh-coming-backdrop>.vh-photo{height:100%;transform:scale(1.06)}
 .vh-coming-backdrop img{object-position:60% center}
-.vh-coming-shade{z-index:-2;background:radial-gradient(ellipse at 50% 40%,#02102b35,#02102b99 72%),linear-gradient(180deg,#02102b85,#02102b70 45%,#02102be8)}
+.vh-coming-clouds{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;opacity:0;transition:opacity 1.5s ease}
+.vh-coming-clouds[data-ready=true]{opacity:.6}
+.vh-coming-shade{z-index:-1;background:radial-gradient(at 50% 40%,#02102b35,#02102b7d 72%),linear-gradient(#02102b85,#02102b52 45%,#02102b87)}
 .vh-coming-header{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:96px;border-bottom:1px solid #f4f3ee20}
 .vh-coming-brand{display:block;width:190px;line-height:1.2;white-space:nowrap}
 
@@ -42,4 +44,4 @@
 @media(max-width:900px){.vh-coming-header-note{display:none}.vh-coming-header{min-height:94px}}
 @media(max-width:600px){.vh-coming-page{padding-inline:24px}.vh-coming-header{justify-content:center;min-height:96px}.vh-coming-brand{width:175px}.vh-coming-main{padding:45px 0}.vh-coming-announcement{margin-bottom:23px;letter-spacing:3px}.vh-coming-location{letter-spacing:1.5px}.vh-coming-main h1{letter-spacing:-1.1px}.vh-coming-description{font-size:14px;line-height:1.5}.vh-coming-actions{width:100%;gap:10px;margin-top:28px}.vh-coming-button{padding:12px 10px;letter-spacing:.4px;font-size:10px;min-width:0}.vh-coming-button-primary{flex:1.2}.vh-coming-button-whatsapp{flex:1}.vh-coming-button svg{width:18px;height:18px}.vh-coming-footer{flex-direction:column;gap:10px;padding:20px 0;text-align:center}.vh-coming-socials{margin-top:26px}}
 @media(max-width:360px){.vh-coming-actions{flex-direction:column;max-width:280px}.vh-coming-button{width:100%;flex:auto}}
-@media(prefers-reduced-motion:reduce){.vh-coming-backdrop,.vh-coming-main>*{animation:none}.vh-coming-button{transition:none}}
+@media(prefers-reduced-motion:reduce){.vh-coming-clouds{display:none}.vh-coming-backdrop,.vh-coming-main>*{animation:none}.vh-coming-button{transition:none}}

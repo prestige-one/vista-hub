@@ -74,3 +74,6 @@ Set these server-side environment variables on the production hosting service, t
 Local values are in ignored .env.local and are not committed. The relay sends Authorization: Bearer <token> and Content-Type: application/json. It rejects invalid/oversized requests and cross-origin browser submissions, times out upstream delivery after 12 seconds, and never logs submitted details or credentials. Forms prevent repeat clicks while sending and after success; a failure keeps entered values and permits retry. A new popup request resets its submission state.
 
 Integration tests use mocked webhook responses: node --experimental-strip-types --test tests/lead-webhook.test.mjs
+## Coming Soon clouds
+
+The Coming Soon page lazily loads a native WebGL adaptation of Vanta.js CLOUDS2. The original shader and noise texture are kept locally; attribution is in licenses/vanta-clouds2.txt. No runtime library was added. Rendering is capped at 180,000 pixels / 24 fps on desktop and 100,000 pixels / 18 fps on smaller screens. It pauses when offscreen, when the document is hidden, or when an enquiry dialog is open. Reduced-motion, data-saver, and unavailable WebGL retain the static building background. GPU resources and observers are released on unmount.
