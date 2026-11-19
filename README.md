@@ -22,7 +22,7 @@ Production: `npm run build`, then `npm start`. Type check: `npm run typecheck`.
 - Local imagery is in `public/images`. Original supplied images are retained in `images`.
 - Google Sans loads from Google Fonts; the rest of the assets are local.
 - The hero uses `public/images/facade-vista.webp`. Set `VISTA_HERO_VIDEO_URL=/videos/vista-hub.mp4` in `.env.local` and put the MP4 in `public/videos` to switch to video. Rebuild for production after changing it. The facade image remains the video poster.
-- The enquiry form validates locally and displays a preview message. It does not send, store or log contact details. Connect a submission endpoint when approved.
+- Both enquiry forms submit through the server-only /api/lead route. See Lead webhook below for deployment configuration.
 - Floor-plan requests lead to the enquiry form. No brochure or floor-plan files were supplied.
 - The location section uses `public/images/vista-hub-map.webp`. Connectivity uses `Dubai-Skyline-full.webp` and the supplied indicative drive times. Completion dates are omitted.
 - The statistics count up once when entering view. `components/text-char-slide.tsx` provides the reusable title entrance; the introduction also includes a gold shimmer. Animations respect reduced-motion preferences.
@@ -43,7 +43,7 @@ The reusable `components/phone-input.tsx` defaults to UAE (+971), with searchabl
 
 ## Footer, timed popup and scroll reveal
 
-The dark footer is in components/footer.tsx with app/footer.css; it contains project links and contact details without a subscription form. The lead dialog is in components/lead-popup.tsx with app/lead-popup.css. It opens after 3 seconds for a first visit or expired cookie. The host-scoped vh_lead_popup_seen cookie stores only a 24-hour expiry timestamp, with Max-Age=86400, Expires, Path=/ and SameSite=Lax (Secure on HTTPS). It is set only when the popup opens and is not renewed on repeat visits. Forms remain local previews.
+The dark footer is in components/footer.tsx with app/footer.css; it contains project links and contact details without a subscription form. The lead dialog is in components/lead-popup.tsx with app/lead-popup.css. It opens after 3 seconds for a first visit or expired cookie. The host-scoped vh_lead_popup_seen cookie stores only a 24-hour expiry timestamp, with Max-Age=86400, Expires, Path=/ and SameSite=Lax (Secure on HTTPS). It is set only when the popup opens and is not renewed on repeat visits. Forms submit through the shared server-side webhook relay.
 
 The original collection is retained in components/legacy-collection.tsx but temporarily omitted from the home page. To restore it, import and render LegacyCollection before SpaceReveal. A separate components/space-reveal.tsx immediately after it keeps its title and description visible from the compact state, expands the navy panel on scroll, and progressively reveals a second interactive collection below. The two collection instances have independent state and unique control IDs. The backdrop is a newly generated business-plaza image in public/images/space-purpose-plaza.webp; its original and exact generation prompt are retained in images/space-purpose-plaza.png and images/space-purpose-plaza.prompt.txt. It uses passive scroll events and one requestAnimationFrame update while visible, with no animation library. Reduced motion and short viewports use a static panel. Shared collection content is in components/collection-data.ts.
 
@@ -53,7 +53,7 @@ Regression checks: node --experimental-strip-types --test tests/lead-popup-cooki
 
 ## Context-aware enquiry actions
 
-Header Enquire, Download Brochure and Request floor plans use the shared LeadPopupTrigger. Explicit clicks open the popup even when the daily automatic-popup cookie is present. components/lead-request.ts defines intent-specific headings, default messages and email subjects/bodies; floor-plan requests include the selected unit type. The preview prepares email_subject and email_body form fields, but no email is sent or persisted. Connect the exported builder to the eventual approved submission endpoint. The on-page contact action is centered at a 190px minimum width and 44px height.
+Header Enquire, Download Brochure and Request floor plans use the shared LeadPopupTrigger. Explicit clicks open the popup even when the daily automatic-popup cookie is present. components/lead-request.ts defines intent-specific headings, default messages and email subjects/bodies; floor-plan requests include the selected unit type. Request intent and selected space are included in the webhook message. The on-page contact action is centered at a 190px minimum width and 44px height.
 
 Legal URLs are centralized in components/site-links.ts. The footer opens the supplied Prestige One policies in a new tab. The original collection is retained but not rendered; its footer link targets the new expanding section.
 
@@ -61,3 +61,16 @@ Legal URLs are centralized in components/site-links.ts. The footer opens the sup
 Connectivity background: public/images/v2/majan-calm-connectivity.webp is a generated Majan-inspired neighbourhood illustration, not an authenticated location photograph. Original PNG and exact generation prompt are retained in images/.
 
 Hero text effects: Grade A uses components/decrypting-text.tsx, repeating every 3 seconds while visible. Reduced-motion users see static text. The previous oval highlight remains available in components/circled-text.tsx and its CSS for later reuse.
+
+## Lead webhook
+
+All forms on / and /home-launch POST JSON to /api/lead, which validates and forwards a flat JSON object to the authorized webhook. Fields: name, phone (international dial code included), email, source (current page URL), project_interest (always Vista Hub), message (request type, selected space/interest/role and additional notes). The browser never receives the webhook credential.
+
+Set these server-side environment variables on the production hosting service, then redeploy:
+- VISTA_LEAD_WEBHOOK_URL: https://srv1361662.hstgr.cloud/hooks/lead
+- VISTA_LEAD_WEBHOOK_TOKEN: the supplied token, without the Bearer prefix.
+- VISTA_FORM_ORIGIN: the exact public site origin, e.g. https://your-domain.ae (no trailing slash). This is explicit configuration, not inferred from forwarded headers.
+
+Local values are in ignored .env.local and are not committed. The relay sends Authorization: Bearer <token> and Content-Type: application/json. It rejects invalid/oversized requests and cross-origin browser submissions, times out upstream delivery after 12 seconds, and never logs submitted details or credentials. Forms prevent repeat clicks while sending and after success; a failure keeps entered values and permits retry. A new popup request resets its submission state.
+
+Integration tests use mocked webhook responses: node --experimental-strip-types --test tests/lead-webhook.test.mjs
