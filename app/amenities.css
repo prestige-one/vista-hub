@@ -23,7 +23,7 @@
 .vh-motion-progress{height:1px;flex:1;background:#ffffff50;display:block;position:relative}
 .vh-motion-progress>span{display:block;height:1px;background:#f3f0e8;transition:width .7s ease}
 .vh-motion-navigation button:hover{color:#e6ce9f}
-.vh-motion button:disabled{cursor:default;opacity:.6}
+.vh-motion button:disabled{opacity:.6}
 @keyframes vh-motion-arrive{0%{transform:translateX(calc(var(--vh-motion-direction)*90%)) scaleX(1.15);filter:blur(16px);opacity:0}15%{opacity:1}35%{filter:blur(12px)}100%{transform:translateX(0) scaleX(1);filter:blur(0);opacity:1}}
 @keyframes vh-motion-depart{0%{transform:translateX(0) scaleX(1);filter:blur(0);opacity:1}55%{filter:blur(18px);opacity:1}100%{transform:translateX(calc(var(--vh-motion-direction)*-100%)) scaleX(1.2);filter:blur(18px);opacity:1}}
 @keyframes vh-motion-copy{0%{opacity:0;transform:translateX(calc(var(--vh-motion-direction)*70px));filter:blur(7px)}100%{opacity:1;transform:translateX(0);filter:blur(0)}}

@@ -8,7 +8,7 @@ export function useLeadSubmission(){
  const controller=useRef<AbortController|null>(null),sent=useRef(false);
  useEffect(()=>()=>controller.current?.abort(),[]);
  const reset=()=>{controller.current?.abort();controller.current=null;sent.current=false;setState(initial);};
- const submit=async(payload:LeadPayload)=>{
+ const submit=async(payload:LeadPayload,form:HTMLFormElement)=>{
   if(controller.current||sent.current)return;
   const active=new AbortController();controller.current=active;
   setState({status:'submitting',message:'Sending your enquiry…'});
@@ -17,6 +17,7 @@ export function useLeadSubmission(){
    const result=await response.json().catch(()=>null);
    if(!response.ok||result?.success!==true)throw new Error(typeof result?.error==='string'?result.error:'We could not send your enquiry. Please try again.');
    if(controller.current!==active)return;
+   form.reset();form.querySelectorAll('textarea').forEach(field=>{field.value='';});
    sent.current=true;setState({status:'success',message:'Thank you. Your enquiry has been received. Our team will be in touch.'});
   }catch(error){
    if(active.signal.aborted||controller.current!==active)return;

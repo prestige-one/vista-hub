@@ -3,12 +3,15 @@
 import {useEffect,useMemo,useRef,useState,type KeyboardEvent} from 'react';
 import {phoneCountries,type PhoneCountry} from './phone-countries';
 
+const defaultCountry=phoneCountries.find(value=>value.code==='AE')!;
+
 export function PhoneInput({id='vh-phone',name='phone'}:{id?:string;name?:string}){
- const [country,setCountry]=useState<PhoneCountry>(()=>phoneCountries.find(value=>value.code==='AE')!);
+ const [country,setCountry]=useState<PhoneCountry>(defaultCountry);
  const [up,setUp]=useState(false),[menuHeight,setMenuHeight]=useState(232);
  const [open,setOpen]=useState(false),[query,setQuery]=useState(''),[active,setActive]=useState(0);
  const root=useRef<HTMLDivElement>(null),trigger=useRef<HTMLButtonElement>(null),search=useRef<HTMLInputElement>(null),list=useRef<HTMLDivElement>(null);
  const filtered=useMemo(()=>{const text=query.trim().toLowerCase();return text?phoneCountries.filter(value=>value.name.toLowerCase().includes(text)||value.code.toLowerCase()===text||value.dialCode.includes(text)):phoneCountries;},[query]);
+ useEffect(()=>{const form=root.current?.closest('form');const reset=()=>{setCountry(defaultCountry);setOpen(false);setQuery('');setActive(0);};form?.addEventListener('reset',reset);return()=>form?.removeEventListener('reset',reset);},[]);
  const listId=id+'-countries';
  const show=()=>{const rect=root.current?.getBoundingClientRect(),dialog=root.current?.closest('dialog[open]')?.getBoundingClientRect();if(rect){const below=Math.min(window.innerHeight,dialog?.bottom??window.innerHeight)-rect.bottom,above=rect.top-Math.max(0,dialog?.top??0);const upwards=below<302&&above>below;setUp(upwards);setMenuHeight(Math.max(64,Math.min(232,(upwards?above:below)-76)));}setQuery('');setActive(phoneCountries.findIndex(value=>value.code===country.code));setOpen(true);};
  const close=()=>{setOpen(false);trigger.current?.focus({preventScroll:true});};

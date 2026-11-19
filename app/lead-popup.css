@@ -20,12 +20,11 @@
 .vh-lead-form .vh-phone-field{gap:7px}
 .vh-lead-form textarea{width:100%;min-height:72px;max-height:160px;border:1px solid #102b4026;background:#fff;color:#102b40;border-radius:3px;padding:11px 12px;font:inherit;font-size:12px;font-weight:400;line-height:1.6;resize:vertical}
 .vh-lead-form textarea::placeholder{color:#8a979c}
-.vh-lead-form .vh-lead-consent{display:grid;grid-template-columns:13px minmax(0,1fr);align-items:start;gap:8px;margin-top:16px;font-size:10px;font-weight:400;line-height:1.65;color:#65737a}
-.vh-lead-form .vh-lead-consent input{width:12px;min-width:12px;height:12px;min-height:12px;margin:3px 0 0;padding:0;accent-color:#02102b}
+.vh-lead-form .vh-lead-consent{display:grid;grid-template-columns:18px minmax(0,1fr);align-items:start;gap:10px;margin-top:16px;cursor:pointer;font-size:10px;font-weight:400;line-height:1.65;color:#65737a}
+.vh-lead-form .vh-lead-consent input{width:18px;min-width:18px;height:18px;min-height:18px;margin:1px 0 0;padding:0;accent-color:#02102b}
 .vh-lead-consent a{text-decoration:underline;text-underline-offset:2px}
 .vh-lead-form>.vh-button{background:#02102b;border-color:#02102b;color:#fff;margin-top:18px;min-height:48px;text-transform:uppercase;font-size:13px}
 .vh-lead-form>.vh-button:hover{background:#16324c;border-color:#16324c}
-.vh-lead-note{font-size:9px;text-align:center;line-height:var(--vh-paragraph-leading,1.7);color:#7a858a;margin-top:10px;min-height:16px}
 @media(max-width:760px){.vh-lead-dialog{width:calc(100vw - 24px);max-height:calc(100svh - 24px);border-radius:12px}.vh-lead-layout{grid-template-columns:1fr;min-height:0}.vh-lead-image{min-height:320px}.vh-lead-image img{object-position:50% 42%}.vh-lead-image-copy{bottom:19px}.vh-lead-form{padding:25px 22px 18px;border-radius:0}.vh-lead-heading{left:24px;right:24px;top:45%}.vh-lead-heading h2{font-size:clamp(18px,5.6vw,22px)}.vh-lead-fields{gap:14px}.vh-lead-form input,.vh-lead-form textarea{font-size:16px}.vh-lead-form .vh-phone-trigger{font-size:13px}.vh-lead-close{top:9px;right:9px;width:34px;height:34px;font-size:23px}}
 .vh-lead-close-bar{position:sticky;top:0;height:0;z-index:5}
 
