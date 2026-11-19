@@ -15,7 +15,7 @@
 .vh-collection-visual>.vh-photo{position:absolute;inset:0;z-index:-2}
 .vh-collection-visual img{object-position:center}
 .vh-collection-visual:after{content:'';position:absolute;inset:45% 0 0;z-index:-1;pointer-events:none;background:linear-gradient(transparent,#02102b99)}
-.vh-collection-visual figcaption{position:absolute;bottom:28px;left:30px;right:30px;display:flex;justify-content:space-between;align-items:end;gap:20px;color:#f4f0e8}
+.vh-collection-visual figcaption{text-transform:uppercase;position:absolute;bottom:28px;left:30px;right:30px;display:flex;justify-content:space-between;align-items:end;gap:20px;color:#f4f0e8}
 .vh-collection-visual figcaption>span:first-child{font-size:17px;font-weight:500}
 .vh-collection-visual figcaption>span:last-child{font-size:9px;letter-spacing:1.5px;color:#e8d6b6;text-align:right;line-height:1.6}
 .vh-collection-details{padding:45px 42px;color:#102b40;display:flex;flex-direction:column;justify-content:center;min-width:0}

@@ -1,0 +1,6 @@
+export function SocialIcon({name}:{name:'instagram'|'facebook'|'linkedin'|'whatsapp'}){
+ if(name==='facebook')return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 21v-8h3l.5-3H14V8.2c0-.9.3-1.5 1.6-1.5H18V4.1c-.4-.1-1.8-.1-2.8-.1-2.8 0-4.6 1.7-4.6 4.7V10H8v3h2.6v8H14Z"/></svg>;
+ if(name==='linkedin')return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.5 9h3v12h-3V9Zm5.5 0h3v1.6c.7-1.2 1.8-1.9 3.4-1.9 3.2 0 4.1 2 4.1 5V21h-3v-6.5c0-1.8-.2-3-2-3s-2.5 1.5-2.5 3.2V21H9V9Z"/></svg>;
+ if(name==='whatsapp')return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.6A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="m8 7 1.5 3-1 1c1 2 2 3 4 4l1-1 3 1.5c-.5 2-2 2.2-3.5 1.5C9 15.4 6.5 12.5 6.5 9.5 6.5 8 7 7 8 7Z" transform="translate(1 -1) scale(.9)"/></svg>;
+ return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.9" r=".8" fill="currentColor" stroke="none"/></svg>;
+}

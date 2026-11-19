@@ -19,5 +19,5 @@
 }
 @media(max-width:360px){
  .vh-header .vh-header-cta{font-size:9px;padding:9px 8px;margin-right:8px}
- .vh-header .vh-wordmark{font-size:16px;letter-spacing:2px}
+ .vh-header .vh-wordmark{width:105px}
 }

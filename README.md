@@ -11,9 +11,14 @@ npm run dev
 
 Production: `npm run build`, then `npm start`. Type check: `npm run typecheck`.
 
+## Routes
+
+- / — Coming Soon page (app/page.tsx, app/coming-soon.css).
+- /home-launch — Full landing page (app/home-launch/page.tsx).
+
 ## Content and media
 
-- Edit sections in `app/page.tsx` and interactive content in `components/interactive.tsx`. Header/hero styles are in `app/hero.css`, statistics and introduction styles in `app/hero-stats.css`, and the third section in `components/strategic-address.tsx` with `app/strategic-address.css`. Shared styles are in `app/globals.css`.
+- Edit landing-page sections in `app/home-launch/page.tsx` and interactive content in `components/interactive.tsx`. Header/hero styles are in `app/hero.css`, statistics and introduction styles in `app/hero-stats.css`, and the third section in `components/strategic-address.tsx` with `app/strategic-address.css`. Shared styles are in `app/globals.css`.
 - Local imagery is in `public/images`. Original supplied images are retained in `images`.
 - Google Sans loads from Google Fonts; the rest of the assets are local.
 - The hero uses `public/images/facade-vista.webp`. Set `VISTA_HERO_VIDEO_URL=/videos/vista-hub.mp4` in `.env.local` and put the MP4 in `public/videos` to switch to video. Rebuild for production after changing it. The facade image remains the video poster.

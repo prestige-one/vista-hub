@@ -1,44 +1,31 @@
-import {SectionAppear} from '../components/section-appear';
-import {SignalText} from '../components/signal-text';
-import {Navigation} from '../components/interactive';
-import {Enquiry} from '../components/enquiry';
-import {ActionLink,Eyebrow,HeroMedia} from '../components/ui';
-import {HeroStats} from '../components/hero-stats';
-import {TextCharSlide} from '../components/text-char-slide';
-import {StrategicAddress} from '../components/strategic-address';
-import {Connectivity} from '../components/connectivity';
-import {CommercialStandard} from '../components/commercial-standard';
-import {Amenities} from '../components/amenities';
-import {Partners} from '../components/partners';
-import {Footer} from '../components/footer';
+import type {Metadata} from 'next';
+import {VistaLogo} from '../components/vista-logo';
+import {Photo} from '../components/ui';
 import {LeadPopup} from '../components/lead-popup';
-import {OfficeGallery} from '../components/office-gallery';
-import {SpaceReveal} from '../components/space-reveal';
+import {LeadPopupTrigger} from '../components/lead-popup-trigger';
+import {SocialIcon} from '../components/social-icon';
+import {ComingSoonMotion} from '../components/coming-soon-motion';
+import {SignalText} from '../components/signal-text';
+import {privacyPolicyUrl,termsConditionsUrl} from '../components/site-links';
+import './coming-soon.css';
 
-export default function Home() {
- return <><a className="vh-skip" href="#main">Skip to content</a><Navigation/><main id="main">
-  <section className="vh-hero" id="top" aria-labelledby="vh-hero-title"><HeroMedia/><div className="vh-hero-shade"/><div className="vh-hero-content vh-container"><Eyebrow>VISTA HUB / MAJAN, DUBAI</Eyebrow><h1 id="vh-hero-title"><SignalText text="Grade A"/> Offices<br/>for Those Who Lead.</h1><p>A distinctive Grade A corporate destination in the heart of Majan, by Prestige One Developments in collaboration with Drake &amp; Scull International. Freehold offices and an exclusive collection of amenities, built around the ambitions of modern enterprise.</p><div className="vh-hero-actions"><ActionLink light intent="enquiry">Enquire now</ActionLink><ActionLink href="#intro" light>Explore Vista Hub</ActionLink></div></div><HeroStats/></section>
-  <section className="vh-intro vh-section" id="intro"><div className="vh-container"><TextCharSlide segments={[{text: "The world’s most influential enterprises understand the power of presence. "}, {text: "Vista Hub", accent: true, shimmer: true}, {text: " is where that presence finds its address.", accent: true}]}/><p className="vh-intro-summary">A remarkable business address is an extension of identity: a statement of confidence, an expression of progress and a foundation for everything that follows.</p></div></section>
-  <StrategicAddress/>
-  <Connectivity/>
-  <CommercialStandard/>
-  <OfficeGallery/>
-  <Amenities/>
-  {/* Original collection is temporarily retained in components/legacy-collection.tsx. */}
-  <SpaceReveal/>
-  <Partners/>
-  <Enquiry/>
- </main><Footer/><LeadPopup/><SectionAppear/></>;
+export const metadata:Metadata={title:'Vista Hub | A New Address. Coming Soon.',description:'Grade A offices for those who lead. Request early access to Vista Hub by Prestige One, Majan, Dubai.'};
+const whatsappUrl='https://wa.me/971523702269?text='+encodeURIComponent('Hello, I would like early access and more information about Vista Hub.');
+
+export default function ComingSoon(){
+ return <><ComingSoonMotion>
+  <div className="vh-coming-backdrop" aria-hidden="true"><Photo src="v2/coming-soon-blur.webp" alt="" priority unoptimized sizes="100vw"/></div>
+  <div className="vh-coming-shade" aria-hidden="true"/>
+  <a className="vh-skip" href="#vh-coming-main">Skip to content</a>
+  <header className="vh-coming-header"><div className="vh-coming-brand"><VistaLogo priority/></div><span className="vh-coming-header-note">A NEW PERSPECTIVE IS TAKING SHAPE</span></header>
+  <main id="vh-coming-main" className="vh-coming-main">
+   <div className="vh-coming-announcement"><span/>COMING SOON<span/></div>
+   <p className="vh-coming-location">VISTA HUB · MAJAN, DUBAI</p>
+   <h1>A new address.<br/><SignalText text="A higher ambition."/></h1>
+   <p className="vh-coming-description">Grade A offices for those who lead.<br/>Be among the first to discover Vista Hub.</p>
+   <div className="vh-coming-actions" role="group" aria-label="Connect with Vista Hub"><LeadPopupTrigger intent="early-access" className="vh-coming-button vh-coming-button-primary">Request early access</LeadPopupTrigger><a className="vh-coming-button vh-coming-button-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer"><SocialIcon name="whatsapp"/>WhatsApp us</a></div>
+   <nav className="vh-coming-socials" aria-label="Social media"><a href="#" aria-label="Instagram"><SocialIcon name="instagram"/></a><a href="#" aria-label="Facebook"><SocialIcon name="facebook"/></a><a href="#" aria-label="LinkedIn"><SocialIcon name="linkedin"/></a></nav>
+  </main>
+  <footer className="vh-coming-footer"><p>© {new Date().getFullYear()} All Right Reserved.</p><nav aria-label="Legal"><a href={privacyPolicyUrl} target="_blank" rel="noopener noreferrer">Privacy Policy</a><span aria-hidden="true">/</span><a href={termsConditionsUrl} target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a></nav></footer>
+ </ComingSoonMotion><LeadPopup autoOpen={false} concealBuilding/></>;
 }
-
-
-
-
-
-
-
-
-
-
-
-
