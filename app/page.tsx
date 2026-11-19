@@ -15,7 +15,7 @@ const whatsappUrl='https://wa.me/971523702269?text='+encodeURIComponent('Hello, 
 
 export default function ComingSoon(){
  return <><ComingSoonMotion>
-  <div className="vh-coming-backdrop" aria-hidden="true"><Photo src="v2/coming-soon-blur.webp" alt="" priority unoptimized sizes="100vw"/></div>
+  <div className="vh-coming-backdrop" aria-hidden="true"><Photo src="v2/coming-soon-blur-lite.webp" alt="" priority unoptimized sizes="100vw"/></div>
   <CloudBackground/>
   <div className="vh-coming-shade" aria-hidden="true"/>
   <a className="vh-skip" href="#vh-coming-main">Skip to content</a>
