@@ -15,13 +15,14 @@
 .vh-coming-announcement>span{height:1px;width:30px;background:#d4b17a80}
 .vh-coming-location{font-size:12px;letter-spacing:2.3px;line-height:1.5;color:#ece7db;margin-bottom:14px}
 .vh-coming-main h1{font-size:clamp(30px,4.2vw,40px);text-transform:uppercase;line-height:1.15;font-weight:500;letter-spacing:-1.8px;margin:0 0 18px;text-wrap:balance}
-.vh-coming-main h1>.vh-signal-text{color:#d4b17a;white-space:normal;max-width:100%}
+.vh-coming-main h1>.vh-signal-text{color:#f2c988;white-space:normal;max-width:100%}
 .vh-coming-description{font-size:16px;line-height:1.65;color:#e3e5e7;max-width:470px}
 .vh-coming-actions{display:flex;justify-content:center;gap:12px;margin-top:28px}
 .vh-coming-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:13px 24px;border:1px solid #f4f3ee70;font-size:11px;letter-spacing:1.1px;font-weight:500;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s,transform .25s}
 .vh-coming-button-primary{background:#f4f3ee;color:#02102b;border-color:#f4f3ee;min-width:220px}
 .vh-coming-button-whatsapp{background:#02102b20;color:#f4f3ee;min-width:180px}
 .vh-coming-button svg{width:21px;height:21px;flex-shrink:0}
+.vh-coming-button-whatsapp>svg{color:#25d366}
 .vh-coming-button:hover{background:#d4b17a;color:#02102b;border-color:#d4b17a;transform:translateY(-2px)}
 .vh-coming-socials{display:flex;gap:12px;margin-top:24px}
 .vh-coming-socials a{display:grid;place-items:center;width:38px;height:38px;border:1px solid #f4f3ee82;border-radius:50%;color:#e7e2d7;transition:color .25s,border-color .25s,background .25s}
