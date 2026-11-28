@@ -77,3 +77,9 @@ Integration tests use mocked webhook responses: node --experimental-strip-types 
 ## Coming Soon clouds
 
 The Coming Soon page lazily loads a native WebGL adaptation of Vanta.js CLOUDS2. The original shader and noise texture are kept locally; attribution is in licenses/vanta-clouds2.txt. No runtime library was added. Rendering is capped at 180,000 pixels / 24 fps on desktop and 100,000 pixels / 18 fps on smaller screens. It pauses when offscreen, when the document is hidden, or when an enquiry dialog is open. Reduced-motion, data-saver, and unavailable WebGL retain the static building background. GPU resources and observers are released on unmount.
+
+## Search indexing (pre-launch)
+
+Both / (Coming Soon) and /home-launch inherit noindex, nofollow and noimageindex from the root metadata. next.config.ts applies X-Robots-Tag to every response, including original /images assets, /_next/image variants and future PDF uploads. robots.txt allows crawling so search engines can read these exclusion rules; do not replace this with Disallow: /. No sitemap exists or is advertised while there are no indexable pages. Previously indexed URLs disappear after search engines recrawl them; these controls do not make public files private.
+
+When launch indexing is approved, revise both the root metadata and response-header policy and generate a sitemap containing only indexable canonical page URLs.
