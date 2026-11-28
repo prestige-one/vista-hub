@@ -1,7 +1,7 @@
 import type {MetadataRoute} from 'next';
+import {siteUrl} from '../lib/site-url';
 
 export default function robots():MetadataRoute.Robots{
- // Disallow would prevent crawlers from seeing noindex metadata and asset headers.
- // No sitemap is advertised while both public pages are excluded from indexing.
- return {rules:{userAgent:'*',allow:'/'}};
+ // Crawlers must access excluded resources to read their noindex response headers.
+ return {rules:{userAgent:'*',allow:'/'},sitemap:siteUrl+'/sitemap.xml'};
 }

@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {siteUrl} from '../lib/site-url';
 import {VistaLogo} from '../components/vista-logo';
 import {Photo} from '../components/ui';
 import {LeadPopup} from '../components/lead-popup';
@@ -10,7 +11,7 @@ import {SignalText} from '../components/signal-text';
 import {privacyPolicyUrl,termsConditionsUrl} from '../components/site-links';
 import './coming-soon.css';
 
-export const metadata:Metadata={title:'Vista Hub | A New Address. Coming Soon.',description:'Grade A offices for those who lead. Request early access to Vista Hub by Prestige One, Majan, Dubai.'};
+export const metadata:Metadata={robots:{index:true,follow:true,noimageindex:true,googleBot:{index:true,follow:true,noimageindex:true}},alternates:{canonical:siteUrl+'/'},title:'Vista Hub | A New Address. Coming Soon.',description:'Grade A offices for those who lead. Request early access to Vista Hub by Prestige One, Majan, Dubai.'};
 const whatsappUrl='https://wa.me/971523702269?text='+encodeURIComponent('Hello, I would like early access and more information about Vista Hub.');
 
 export default function ComingSoon(){

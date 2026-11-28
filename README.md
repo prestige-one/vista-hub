@@ -80,6 +80,8 @@ The Coming Soon page lazily loads a native WebGL adaptation of Vanta.js CLOUDS2.
 
 ## Search indexing (pre-launch)
 
-Both / (Coming Soon) and /home-launch inherit noindex, nofollow and noimageindex from the root metadata. next.config.ts applies X-Robots-Tag to every response, including original /images assets, /_next/image variants and future PDF uploads. robots.txt allows crawling so search engines can read these exclusion rules; do not replace this with Disallow: /. No sitemap exists or is advertised while there are no indexable pages. Previously indexed URLs disappear after search engines recrawl them; these controls do not make public files private.
+Only / (Coming Soon) allows indexing and follows links. It declares the canonical origin from lib/site-url.ts and is the only entry in /sitemap.xml. The full landing page /home-launch inherits noindex, nofollow and noimageindex from the root metadata. Images remain excluded even on Coming Soon.
 
-When launch indexing is approved, revise both the root metadata and response-header policy and generate a sitemap containing only indexable canonical page URLs.
+next.config.ts allows indexing of the root URL and applies X-Robots-Tag: noindex to all non-root responses, including original /images assets, /_next/image variants and future PDF uploads. robots.txt allows crawling so crawlers can read the noindex rules and advertises the Coming Soon-only sitemap. Do not replace this with Disallow: /. These controls do not make public files private.
+
+When the full landing page is approved for search, revise its inherited metadata and the non-root header policy before adding it to the sitemap. Update the shared canonical origin if a custom domain is assigned.

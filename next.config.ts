@@ -2,9 +2,12 @@ import type {NextConfig} from 'next';
 
 const config:NextConfig={
  async headers(){
-  // Pre-launch: covers both pages, original/optimized images and any future PDF URLs.
-  // Keep these URLs crawlable so search engines can read the noindex response.
-  return [{source:'/:path*',headers:[{key:'X-Robots-Tag',value:'noindex, nofollow, noimageindex'}]}];
+  // Coming Soon is indexable; the landing page, images and PDF files remain excluded.
+  // Keep resources crawlable so search engines can read their noindex headers.
+  return [
+   {source:'/',headers:[{key:'X-Robots-Tag',value:'index, follow, noimageindex'}]},
+   {source:'/:path+',headers:[{key:'X-Robots-Tag',value:'noindex, nofollow, noimageindex'}]},
+  ];
  },
 };
 export default config;
